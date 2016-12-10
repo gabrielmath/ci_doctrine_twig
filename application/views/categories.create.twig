@@ -1,0 +1,27 @@
+{% extends 'base/template.site.twig' %}
+
+{% block title %} Criar Categoria {% endblock %}
+
+{% block content %}
+    <h1>Nova Categoria</h1>
+    {{ form_open('categories/insert/') | raw }}
+    <div class="row">
+        <div class="col-xs-12 col-sm-9">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" name="name" id="name" value="{{ category.getName() | default('') }}" class="form-control" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-9">
+            <br>
+            <button style="float: right;" type="submit" class="btn btn-outline-success">Salvar</button>
+        </div>
+    </div>
+
+    {{ form_close() | raw }}
+
+    <br>
+    <a href="javascript:history.back();">Voltar</a>
+{% endblock %}

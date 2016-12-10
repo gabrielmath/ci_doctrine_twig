@@ -1,0 +1,26 @@
+{% extends 'base/template.site.twig' %}
+
+{% block title %} {{ post.getTitle }} {% endblock %}
+
+{% block content %}
+    <h1>Relacionar Post com Categorias</h1>
+    <h4>{{ post.getTitle() }}</h4>
+    {{ form_open('posts/set_categories/'~post.getId()) | raw }}
+        <label>Categorias:</label>
+        <div class="form-group">
+        {% for category in categories %}
+            <label class="custom-control custom-checkbox">
+                <input type="checkbox" name="categories[]" value="{{ category.getId() }}" class="custom-control-input" {{ (post.getCategories().contains(category)) ? 'checked' : '' }}>
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">{{ category.getName() }}</span>
+            </label>
+            <br>
+        {% endfor %}
+        </div>
+    <p>
+        <br>
+        <button type="submit" class="btn btn-outline-success">Vincular</button>
+    </p>
+    {{ form_close() | raw }}
+    <a href="javascript:history.back();">Voltar</a>
+{% endblock %}

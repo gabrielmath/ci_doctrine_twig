@@ -1,0 +1,25 @@
+<nav class="navbar navbar-dark bg-primary">
+    <ul class="nav navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ base_url() }}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Posts
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="{{ base_url('posts/lista/') }}">Gerenciar</a>
+                <a class="dropdown-item" href="{{ base_url('posts/create/') }}">Criar</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categorias
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                <a class="dropdown-item" href="{{ base_url('categories/lista/') }}">Gerenciar</a>
+                <a class="dropdown-item" href="{{ base_url('categories/create/') }}">Criar</a>
+            </div>
+        </li>
+    </ul>
+</nav>

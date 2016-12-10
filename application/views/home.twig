@@ -1,0 +1,38 @@
+{% extends 'base/template.site.twig' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+    <div class="row">
+        <h2>POSTS DO PROJETO</h2>
+        <div class="col-md-10">
+            <ul class="list-unstyled">
+                <li>
+                    {% for post in posts %}
+                    <div class="jumbotron">
+                        <h1>{{ post.getTitle() }}</h1>
+                        <p>{{ substr(strip_tags(post.getContent()), 0, 20) }}...</p>
+                        <p><a class="btn btn-primary btn-lg" href="{{ base_url('posts/post/'~post.getId()) }}" role="button">Leia mais</a></p>
+                        <p>
+                            {% for i in 0.. count(post.getCategories().toArray()) %}
+                                <a href="{{ base_url('home/index/'~post.getCategories()[i].getId()) }}">
+                                    <span class="tag tag-info">{{ post.getCategories()[i].getName() }}</span>
+                                </a>
+                            {% endfor %}
+                        </p>
+                    </div>
+                    {% endfor %}
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-2">
+            <ul class="list-group">
+                {% for category in categories %}
+                <li class="list-group-item">
+                    <a href="{{ base_url('home/index/'~category.getId()) }}">{{ category.getName() }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

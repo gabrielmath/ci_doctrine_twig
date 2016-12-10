@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Painel - {% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{{ base_url('bower_components/bootstrap/dist/css/bootstrap-reboot.min.css') }}" >
+    <link rel="stylesheet" href="{{ base_url('bower_components/bootstrap/dist/css/bootstrap.min.css') }}" >
+
+</head>
+<body>
+<header id="header">
+    <div class="container"></div>
+</header>
+<main id="principal">
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</main>
+<footer id="footer">
+    <div class="container"></div>
+</footer>
+<script src="{{ base_url('bower_components/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ base_url('bower_components/bootstrap/dist/css/bootstrap.min.css') }}"></script>
+</body>
+</html>

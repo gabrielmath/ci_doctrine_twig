@@ -1,0 +1,25 @@
+{% extends 'base/template.site.twig' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+<h1>Categorias</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.getId() }} </td>
+                <td>{{ category.getName() }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

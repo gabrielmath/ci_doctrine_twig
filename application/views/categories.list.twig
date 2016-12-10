@@ -1,0 +1,41 @@
+{% extends 'base/template.site.twig' %}
+
+{% block title %} Listagem de Categorias {% endblock %}
+
+{% block content %}
+
+    <h1>Listagem de Categorias</h1>
+    <a class="btn btn-outline-success" href="{{ base_url('categories/create/') }}">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        Adicionar Nova Categoria
+    </a>
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th style="width: 40%;">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.getId() }}</td>
+                <td>{{ category.getName() }}</td>
+                <td>
+                    <a href="{{ base_url('categories/edit/'~category.getId()) }}" class="btn btn-outline-secondary btn-sm">
+                        <i class="fa fa-pencil-square-o" data-toggle="tooltip" data-placement="top" title="Editar Categoria" aria-hidden="true"></i>
+                    </a>
+                    <a href="{{ base_url('categories/remove/'~category.getId()) }}" class="btn btn-outline-danger btn-sm">
+                        <i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Excluir" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="javascript:history.back();">Voltar</a>
+{% endblock %}

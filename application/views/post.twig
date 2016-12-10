@@ -1,0 +1,13 @@
+{% extends 'base/template.site.twig' %}
+
+{% block title %} {{ post.getTitle }} {% endblock %}
+
+{% block content %}
+
+    <h1>{{ post.getTitle }}</h1>
+    <article>
+        {{ post.getContent() | raw }}
+    </article>
+    <br>
+    <a href="javascript:history.back();">Voltar</a>
+{% endblock %}
